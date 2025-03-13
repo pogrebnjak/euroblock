@@ -2,7 +2,70 @@
     ViewData["Title"] = "Главная";
 }
 
-<div class="jumbotron text-center p-5 bg-primary text-white">
-    <h1>Добро пожаловать в Евроблок</h1>
-    <p>Производство качественной плитки для вашего дома и бизнеса</p>
-</div>
+<!-- Секция Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Добро пожаловать в Евроблок</h1>
+        <p>Производство высококачественной керамической плитки с 1990 года</p>
+        <a href="/Home/Products" class="callback-btn">Узнать о продукции</a>
+    </div>
+</section>
+
+<!-- Секция "О компании" -->
+<section class="about-snippet">
+    <div class="container">
+        <h2>О компании</h2>
+        <p>
+            Компания "Евроблок" основана в 1990 году и является одним из ведущих производителей керамической плитки. Мы предлагаем широкий ассортимент изделий для оформления интерьеров и экстерьеров, сочетая традиционные технологии с инновационными решениями.
+        </p>
+        <p>
+            Наша продукция отличается высокой долговечностью, эстетикой и разнообразием коллекций, что позволяет подобрать оптимальное решение для любого проекта – от жилых домов до коммерческих объектов.
+        </p>
+        <a href="/Home/About" class="callback-btn">Подробнее об компании</a>
+    </div>
+</section>
+
+<!-- Секция "Наша продукция" -->
+<section class="products-snippet">
+    <div class="container">
+        <h2>Наша продукция</h2>
+        <div class="row">
+            <!-- Пример карточки продукта -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="~/images/product1.jpg" alt="Коллекция Элеганс" class="img-fluid">
+                    <h3>Коллекция Элеганс</h3>
+                    <p>Стильная плитка для современных интерьеров.</p>
+                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="~/images/product2.jpg" alt="Коллекция Классика" class="img-fluid">
+                    <h3>Коллекция Классика</h3>
+                    <p>Проверенные временем решения для традиционных интерьеров.</p>
+                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="~/images/product3.jpg" alt="Коллекция Модерн" class="img-fluid">
+                    <h3>Коллекция Модерн</h3>
+                    <p>Инновационные дизайны для современной архитектуры.</p>
+                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция "Контакты" -->
+<section class="contact-snippet">
+    <div class="container">
+        <h2>Контакты</h2>
+        <p>
+            Для консультаций и получения дополнительной информации свяжитесь с нами по телефону или оставьте заявку на обратный звонок.
+        </p>
+        <a href="/Home/Contact" class="callback-btn">Связаться с нами</a>
+    </div>
+</section>
