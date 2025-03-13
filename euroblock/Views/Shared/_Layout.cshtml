@@ -15,31 +15,73 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- Верхний бар (Top Bar) с информацией (можно взять данные из старого сайта) -->
-        <div class="top-bar">
-            <div class="container">
-                <div class="top-info">
-                    <span>Время работы: Пн-Пт 9:00 - 18:00</span>
-                    <span>Телефон: +359 888 123 456</span>
+        <header>
+            <!-- Верхняя часть: Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="top-bar-left">
+                        <span class="phone-number"><a href="tel:+78001005653">+7-800-100-56-53</a></span>
+                        <span class="call-link"><a href="#">Заказать звонок</a></span>
+                    </div>
+                    <div class="top-bar-right">
+                        <span class="city">Омск</span>
+                        <div class="social-icons">
+                            <a href="#" title="Вконтакте"><i class="bi bi-vk"></i></a>
+                            <a href="#" title="Инстаграм"><i class="bi bi-instagram"></i></a>
+                            <a href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" title="Телеграм"><i class="bi bi-telegram"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Фиксированный Header с навигацией -->
-        <header>
-            <div class="header-container">
-                <div class="company-name">Евроблок</div>
-                <nav class="nav-links">
-                    <a href="/">Главная</a>
-                    <a href="/Home/About">О компании</a>
-                    <a href="/Home/Products">Продукция</a>
-                    <a href="/Home/News">Новости</a>
-                    <a href="/Home/Contact">Контакты</a>
-                </nav>
-                <button class="callback-btn" onclick="alert('Заказать обратный звонок')">Обратный звонок</button>
+            <!-- Нижняя часть: Main Navigation -->
+            <div class="main-nav">
+                <div class="container nav-container">
+                    <!-- Логотип (PNG) слева -->
+                    <div class="logo">
+                        <img src="~/images/logo.png" alt="Логотип Евроблок" />
+                    </div>
+
+                    <!-- Горизонтальное меню -->
+                    <nav class="nav-menu">
+                        <ul class="nav-list" id="navList">
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/Home/About">О компании</a></li>
+                            <li><a href="/Home/Products">Продукция</a></li>
+                            <li><a href="/Home/News">Новости</a></li>
+                            <li><a href="/Home/Contact">Контакты</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Кнопка-гамбургер для мобильного меню -->
+                    <button class="burger-menu" id="burgerMenuBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </header>
 
+                    <!-- Основное меню -->
+                    <ul class="nav-list" id="mainNavList">
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Информация</a></li>
+                        <li><a href="#">Выполненные объекты</a></li>
+                        <li><a href="#">Прайс</a></li>
+                        <li><a href="#">Где купить</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной контент -->
+        <div class="content">
+            @RenderBody()
+        </div>
         <!-- Основной контент -->
         <div class="content">
             @RenderBody()
@@ -50,7 +92,7 @@
             <div class="container footer-container">
                 <div class="footer-left">
                     <p>© @DateTime.Now.Year Евроблок. Все права защищены.</p>
-                    <p>Адрес: ул. Примерная, 123, София, Болгария</p>
+                    <p>Адрес: ул. Примерная, 123, Омск</p>
                 </div>
                 <div class="footer-right">
                     <a href="https://vk.com" target="_blank" class="social-btn" title="Вконтакте"><i class="bi bi-vk"></i></a>
@@ -67,3 +109,11 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+<script>
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const navList = document.getElementById('navList');
+
+    burgerBtn.addEventListener('click', function() {
+      navList.classList.toggle('mobile-show');
+    });
+</script>

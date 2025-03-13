@@ -4,12 +4,141 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    /* Фоновый цвет всего сайта (примерно тот, что в изображении) */
+    /* Фоновый цвет всего сайта*/
     background-color: #dcc7b9;
     /* Тёмный цвет шрифта для контраста со светлым фоном */
     color: #2c2c2c;
 }
+/* Общие контейнеры */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
+/* Верхняя полоса (Top Bar) */
+.top-bar {
+    background-color: #5d4b43; /* Коричневый цвет */
+    color: #fff;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+    .top-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.top-bar-left span,
+.top-bar-right span,
+.top-bar-right a {
+    margin-right: 15px;
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+    .top-bar a:hover {
+        color: #ccc;
+    }
+
+.social-icons a {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* Основная навигация (Main Navigation) */
+.main-nav {
+    background-color: #5d4b43; /* Тот же коричневый для согласованности */
+    padding: 12px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Логотип */
+.logo img {
+    height: 60px; /* Увеличенный логотип */
+}
+
+/* Горизонтальное меню */
+.nav-menu {
+    flex: 1;
+    margin-left: 30px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+    .nav-list li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            color: #556B2F;
+        }
+
+/* Кнопка-гамбургер (скрыта на десктопе) */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+    .burger-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        transition: background-color 0.3s;
+    }
+
+/* Адаптивное меню (на мобильных) */
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none; /* скрываем горизонтальное меню */
+    }
+
+    .burger-menu {
+        display: flex; /* показываем гамбургер */
+    }
+    /* Показываем меню списком при раскрытии */
+    .nav-list.mobile-show {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #5d4b43;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 15px;
+    }
+}
 /* Обёртка для всей страницы */
 .wrapper {
     display: flex;
@@ -19,8 +148,12 @@ html, body {
 
 /* Верхний бар (Top Bar) */
 .top-bar {
-    background-color: #e6d5c9; /* немного темнее основного фона для отделения */
-    padding: 5px 0;
+    position: fixed; /* Закрепляем сверху */
+    top: 0;
+    width: 100%;
+    background-color: #836046; /* Новый цвет фона */
+    padding: 15px 0;
+    z-index: 1000; /* Устанавливаем высокий z-index, чтобы он был поверх других элементов */
 }
 
     .top-bar .container {
@@ -31,18 +164,26 @@ html, body {
 
 .top-info span {
     margin: 0 10px;
-    color: #2c2c2c;
+    color: #fff; /* Изменяем цвет текста на белый для контраста */
+}
+/* Стили для слайдера */
+#advertisement-carousel {
+    margin-top: 20px;
 }
 
+    #advertisement-carousel .carousel-item img {
+        height: 400px; /* Высота слайдов */
+        object-fit: cover; /* Обеспечивает покрытие всего блока изображением */
+    }
 /* Header */
 header {
     position: fixed;
-    top: 40px; /* Под верхним баром */
+    top: 50px; /* Под верхним баром */
     width: 100%;
-    background-color: #e6d5c9;
+    background-color: #836046;
     padding: 15px 30px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 999; /* Устанавливаем z-index ниже, чем у верхнего бара */
 }
 
 .header-container {
@@ -102,40 +243,46 @@ header {
 }
 
 /* Footer */
+/* Стили для футера */
 footer {
-    background-color: #e6d5c9;
-    color: #2c2c2c;
-    padding: 20px 30px;
-    text-align: center;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+    background-color: #836046; /* Цвет фона футера */
+    color: #2c2c2c; /* Цвет текста в футере */
+    padding: 20px 30px; /* Внутренние отступы футера */
+    text-align: center; /* Выравнивание текста по центру */
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.2); /* Тень для футера */
 }
 
+/* Контейнер для содержимого футера */
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Используем flexbox для расположения элементов */
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    justify-content: space-between; /* Распределяем элементы по краям */
+    align-items: center; /* Выравниваем элементы по центру */
 }
 
+/* Стили для текста в левой части футера */
 .footer-left p {
-    margin: 5px 0;
+    margin: 5px 0; /* Отступы сверху и снизу */
 }
 
+/* Стили для правой части футера */
 .footer-right {
-    display: flex;
-    gap: 15px;
+    display: flex; /* Используем flexbox для расположения элементов */
+    gap: 15px; /* Расстояние между элементами */
 }
 
+/* Стили для кнопок социальных сетей */
 .social-btn {
-    color: #2c2c2c;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-    text-decoration: none;
+    color: #2c2c2c; /* Цвет текста кнопок */
+    font-size: 1.5rem; /* Размер шрифта кнопок */
+    transition: color 0.3s; /* Плавный переход цвета */
+    text-decoration: none; /* Убираем подчеркивание текста */
 }
 
-    .social-btn:hover {
-        color: #556B2F;
-    }
+/* Стили для кнопок социальных сетей при наведении */
+.social-btn:hover {
+    color: #270be144; /* Цвет текста кнопок при наведении */
+}
 
 /* Пример стилизации некоторых секций на главной */
 .hero-production {
@@ -168,4 +315,122 @@ footer {
     top: 100px;
     left: 100px;
     opacity: 0.8;
+}
+/* Стили для индикаторов слайдера */
+.carousel-indicators button {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: transparent; /* Прозрачный фон для кнопки */
+    border: none;
+    margin: 0 5px; /* Добавляем отступы между индикаторами */
+    cursor: pointer;
+    /* Скрываем старый индикатор */
+    background-image: none !important;
+    display: flex; /* Устанавливаем flex для корректного отображения псевдоэлементов */
+    align-items: center;
+    justify-content: center;
+}
+
+    .carousel-indicators button::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background-color: #556B2F; /* Цвет индикаторов */
+        transform: rotate(45deg); /* Поворот на 45 градусов для создания ромба */
+        transition: background-color 0.3s;
+    }
+
+.carousel-indicators .active::before {
+    background-color: #445a23; /* Цвет активного индикатора */
+}
+/* Секция "Наша продукция" */
+.products-snippet {
+    padding: 60px 0;
+    background-color: #121212; /* или другой фон, если требуется */
+}
+
+    .products-snippet h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #ffffff;
+    }
+
+/* Карточка продукта */
+.product-card {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+/* Общее оформление ссылок в карточке */
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+    .product-link:hover .product-img,
+    .product-link:hover .product-title {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+/* Изображение продукта */
+.product-img {
+    width: 100%;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+/* Заголовок продукта */
+.product-title {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.product-link:hover .product-title {
+    color: #556B2F; /* Акцентный цвет при наведении */
+}
+
+/* Описание продукта */
+.product-desc {
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+/* Кнопка "Подробнее" */
+.product-btn {
+    display: inline-block;
+    background-color: #556B2F;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+    .product-btn:hover {
+        background-color: #445a23;
+        transform: scale(1.05);
+        color: #ffffff;
+    }
+
+/* Убираем лишние отступы сверху (если есть белые отступы, возможно, в body или .products-snippet) */
+body, .products-snippet {
+    margin-top: 0;
 }

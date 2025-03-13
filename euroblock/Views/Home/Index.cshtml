@@ -10,6 +10,35 @@
         <a href="/Home/Products" class="callback-btn">Узнать о продукции</a>
     </div>
 </section>
+<!-- Секция слайдера -->
+<section id="advertisement-carousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Индикаторы -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#advertisement-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#advertisement-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#advertisement-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/ad1.jpg" class="d-block w-100" alt="Реклама 1">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/ad2.jpg" class="d-block w-100" alt="Реклама 2">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/ad3.jpg" class="d-block w-100" alt="Реклама 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#advertisement-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#advertisement-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</section>
+
 
 <!-- Секция "О компании" -->
 <section class="about-snippet">
@@ -30,35 +59,75 @@
     <div class="container">
         <h2>Наша продукция</h2>
         <div class="row">
-            <!-- Пример карточки продукта -->
+            <!-- Карточка продукта 1 -->
             <div class="col-md-4">
                 <div class="product-card">
-                    <img src="~/images/product1.jpg" alt="Коллекция Элеганс" class="img-fluid">
-                    <h3>Коллекция Элеганс</h3>
-                    <p>Стильная плитка для современных интерьеров.</p>
-                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                    <a href="/Home/ProductDetails/1" class="product-link">
+                        <img src="~/images/product1.jpg" alt="Коллекция Элеганс" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Элеганс</h3>
+                    </a>
+                    <p class="product-desc">Стильная плитка для современных интерьеров.</p>
+                    <a href="/Home/ProductDetails/1" class="callback-btn product-btn">Подробнее</a>
                 </div>
             </div>
+            <!-- Карточка продукта 2 -->
             <div class="col-md-4">
                 <div class="product-card">
-                    <img src="~/images/product2.jpg" alt="Коллекция Классика" class="img-fluid">
-                    <h3>Коллекция Классика</h3>
-                    <p>Проверенные временем решения для традиционных интерьеров.</p>
-                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                    <a href="/Home/ProductDetails/2" class="product-link">
+                        <img src="~/images/product2.jpg" alt="Коллекция Классика" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Классика</h3>
+                    </a>
+                    <p class="product-desc">Проверенные временем решения для традиционных интерьеров.</p>
+                    <a href="/Home/ProductDetails/2" class="callback-btn product-btn">Подробнее</a>
                 </div>
             </div>
+            <!-- Карточка продукта 3 -->
             <div class="col-md-4">
                 <div class="product-card">
-                    <img src="~/images/product3.jpg" alt="Коллекция Модерн" class="img-fluid">
-                    <h3>Коллекция Модерн</h3>
-                    <p>Инновационные дизайны для современной архитектуры.</p>
-                    <a href="/Home/Products" class="callback-btn">Подробнее</a>
+                    <a href="/Home/ProductDetails/3" class="product-link">
+                        <img src="~/images/product3.jpg" alt="Коллекция Модерн" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Модерн</h3>
+                    </a>
+                    <p class="product-desc">Инновационные дизайны для современной архитектуры.</p>
+                    <a href="/Home/ProductDetails/3" class="callback-btn product-btn">Подробнее</a>
+                </div>
+            </div>
+            <!-- Карточка продукта 4 -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <a href="/Home/ProductDetails/4" class="product-link">
+                        <img src="~/images/product4.jpg" alt="Коллекция Престиж" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Престиж</h3>
+                    </a>
+                    <p class="product-desc">Элегантные решения для элитных интерьеров.</p>
+                    <a href="/Home/ProductDetails/4" class="callback-btn product-btn">Подробнее</a>
+                </div>
+            </div>
+            <!-- Карточка продукта 5 -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <a href="/Home/ProductDetails/5" class="product-link">
+                        <img src="~/images/product5.jpg" alt="Коллекция Современность" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Современность</h3>
+                    </a>
+                    <p class="product-desc">Динамичные формы для современного дизайна.</p>
+                    <a href="/Home/ProductDetails/5" class="callback-btn product-btn">Подробнее</a>
+                </div>
+            </div>
+            <!-- Карточка продукта 6 -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <a href="/Home/ProductDetails/6" class="product-link">
+                        <img src="~/images/product6.jpg" alt="Коллекция Эко" class="img-fluid product-img">
+                        <h3 class="product-title">Коллекция Эко</h3>
+                    </a>
+                    <p class="product-desc">Экологичные материалы и натуральные оттенки.</p>
+                    <a href="/Home/ProductDetails/6" class="callback-btn product-btn">Подробнее</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <!-- Секция "Контакты" -->
 <section class="contact-snippet">
     <div class="container">
