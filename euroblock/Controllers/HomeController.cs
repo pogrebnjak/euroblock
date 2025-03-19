@@ -44,5 +44,11 @@ namespace euroblock.Controllers
         {
             return View();
         }
+   
+public IActionResult Catalog()
+{
+    // сюда база
+    return View();
+}
     }
 }

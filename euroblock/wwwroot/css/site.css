@@ -216,3 +216,22 @@ footer {
     .navbar-nav .nav-link.active {
         background-color: #c15748; /* Выделение активной ссылки */
     }
+    /* Каталог*/
+.filter-sidebar {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.product-catalog {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+}
+
+    .product-catalog img {
+        max-height: 150px;
+        object-fit: cover;
+    }
+

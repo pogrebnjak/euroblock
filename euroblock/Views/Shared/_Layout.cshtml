@@ -37,8 +37,9 @@
                                 <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")" href="/Home/About">О компании</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Products" ? "active" : "")" href="/Home/Products">Продукция</a>
+                                <a class="nav-link" asp-controller="Home" asp-action="Catalog">Каталог</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "News" ? "active" : "")" href="/Home/News">Новости</a>
                             </li>
