@@ -3,9 +3,24 @@
     ViewData["Title"] = "Каталог";
 }
 
-<section class="catalog-page">
+<section class="catalog">
     <div class="container">
         <div class="row">
+            <h2>Каталог продукции</h2>
+
+            <!-- Фильтры: кнопки для категорий -->
+            <div class="filter-controls fullwidth">
+                <button class="filter-btn" data-filter="bordyury">Бордюры</button>
+                <button class="filter-btn" data-filter="sten-bloki">Стеновые блоки</button>
+                <button class="filter-btn" data-filter="troutuarna-plitka">Тротуарная плитка</button>
+                <button class="filter-btn" data-filter="sten-materialy">Стеновые материалы</button>
+            </div>
+
+            <!-- Поисковая строка -->
+            <div class="search-box">
+                <input type="text" id="catalogSearch" placeholder="Поиск..." />
+                <button id="searchBtn" class="callback-btn">Найти</button>
+            </div>
             <!-- Левая колонка с фильтрами -->
             <div class="col-md-3">
                 <div class="filter-sidebar">
@@ -76,8 +91,7 @@
 
             <!-- Правая колонка с товарами -->
             <div class="col-md-9">
-                <h2 class="mb-4">Тротуарная плитка</h2>
-                <div class="row">
+                                <div class="row">
                     @foreach (var product in Model)
                     {
                         <div class="col-md-4 mb-4">

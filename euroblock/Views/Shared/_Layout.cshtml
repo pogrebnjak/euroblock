@@ -10,70 +10,133 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="top-bar">
-            <div class="container">
-                <div class="top-info">
-                    <span>Время работы: Пн-Пт 9:00 - 18:00</span>
-                    <span>Телефон: +359 888 123 456</span>
-                </div>
-            </div>
-        </div>
+    <div class="random-bg">
+        <!-- Фигуры -->
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="shape-3"></div>
 
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="/">Евроблок</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" href="/">Главная</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")" href="/Home/About">О компании</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Home" asp-action="Catalog">Каталог</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "News" ? "active" : "")" href="/Home/News">Новости</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")" href="/Home/Contact">Контакты</a>
-                            </li>
-                        </ul>
-                        <button class="callback-btn ms-3" onclick="alert('Заказать обратный звонок')">Обратный звонок</button>
+        <div class="wrapper">
+            <div class="top-bar">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <div class="logo">
+                        <img src="~/images/logo.png" alt="Логотип компании" class="logo-img">
+                    </div>
+                    <div class="top-info">
+                        <span> г. Омск, проспект Мира, 185 к38</span>
+                        <span>
+                            &nbsp;&nbsp;&nbsp; +7 (3812) 79 05 85<br />
+                            &nbsp; Время работы: Пн-Пт 8:00 - 17:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +7 900 671 83 00
+                        </span>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </div>
 
-        <div class="content">
-            @RenderBody()
-        </div>
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">Евроблок</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" href="/">Главная</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")" href="/Home/About">О компании</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Catalog">Каталог</a>
+                                </li>
 
-        <footer>
-            <div class="container footer-container">
-                <div class="footer-left">
-                    <p>© @DateTime.Now.Year Евроблок. Все права защищены.</p>
-                    <p>Адрес: ул. Примерная, 123, Омск</p>
-                </div>
-                <div class="footer-right">
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "News" ? "active" : "")" href="/Home/News">Новости</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")" href="/Home/Contact">Контакты</a>
+                                </li>
+                            </ul>
+                            <button class="callback-btn ms-3" onclick="alert('Заказать обратный звонок')">Обратный звонок</button>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="content">
+                @RenderBody()
+            </div>
+
+            <div class="contact-button">
+                <button id="mainContactBtn" class="main-contact-btn">Связаться с нами</button>
+                <div id="contactOptions" class="contact-options">
                     <a href="https://vk.com" target="_blank" class="social-btn" title="Вконтакте"><i class="bi bi-vk"></i></a>
                     <a href="https://instagram.com" target="_blank" class="social-btn" title="Инстаграм"><i class="bi bi-instagram"></i></a>
                     <a href="https://wa.me/123456789" target="_blank" class="social-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
                     <a href="https://t.me/yourchannel" target="_blank" class="social-btn" title="Телеграм"><i class="bi bi-telegram"></i></a>
+                    <button class="callback-btn" onclick="alert('Заказать обратный звонок')">Обратный звонок</button>
+                    <button class="phone-btn" onclick="alert('Позвонить: +7 900 671 83 00')"><i class="bi bi-telephone"></i></button>
                 </div>
             </div>
-        </footer>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
+            <footer>
+                <div class="container footer-container">
+                    <div class="footer-left">
+                        <p>© @DateTime.Now.Year Евроблок. Все права защищены.</p>
+                        <p>Адрес: ул. проспект Мира, 185к38, Омск</p>
+                    </div>
+                    <div class="footer-right">
+                        <a href="https://vk.com" target="_blank" class="social-btn" title="VK"><i class="bi bi-vk"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn" title="Инстаграм"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/123456789" target="_blank" class="social-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://t.me/yourchannel" target="_blank" class="social-btn" title="vk"><i class="bi bi-telegram"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        @RenderSection("Scripts", required: false)
+        <script>
+            // Фильтрация по категориям
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    document.querySelectorAll('.catalog-item').forEach(item => {
+                        if(item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Поиск по заголовкам товаров
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const query = document.getElementById('catalogSearch').value.toLowerCase();
+                document.querySelectorAll('.catalog-item').forEach(item => {
+                    const title = item.querySelector('.product-title').innerText.toLowerCase();
+                    if(title.includes(query)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Показ и скрытие кнопок связи
+            document.getElementById('mainContactBtn').addEventListener('click', function() {
+                var contactOptions = document.getElementById('contactOptions');
+                if (contactOptions.style.display === 'block') {
+                    contactOptions.style.display = 'none';
+                } else {
+                    contactOptions.style.display = 'block';
+                }
+            });
+        </script>
 </body>
 </html>
+

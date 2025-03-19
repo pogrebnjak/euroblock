@@ -1,11 +1,24 @@
+/* Стили для логотипа */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Задайте нужную высоту логотипа */
+    width: auto;
+    margin-right: 20px; /* Отступ справа от логотипа */
+}
+
+
 /* Общие настройки */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #445a23;
-    color: #2c2c2c;
+    background-color: #fff;
+    color: #312E29;
 }
 
 /* Обёртка для всей страницы */
@@ -33,7 +46,7 @@ html, body {
 /* Верхний бар текст (Top Bar) */
 .top-info span {
     margin: 0 10px;
-    color: #fff;
+    color: #DCCABC;
 }
 
 /* Стили для слайдера */
@@ -66,15 +79,15 @@ header {
 .company-name {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2c2c2c;
+    color: #312E29;
 }
 
 .callback-btn {
-    background-color: #4f6f4c;
+    background-color: #657C68;
     border: none;
     border-radius: 50px;
     padding: 10px 20px;
-    color: #fff;
+    color: #FFF;
     font-size: 1rem;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
@@ -95,7 +108,7 @@ header {
     margin-top: 100px;
     padding: 30px;
     background-color: #CBB7A6;
-    color: #2c2c2c;
+    color: #312E29;
 }
 
 /* Стили для заголовка "Наша продукция" */
@@ -115,7 +128,7 @@ header {
 
 .product-card {
     background-color: #3D3630;
-    color: #c2d3ac;
+    color: #DCCABC;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 15px;
@@ -169,31 +182,32 @@ footer {
 
 /* Стили для индикаторов слайдера */
 .carousel-indicators button {
-    position: relative;
-    width: 12px;
-    height: 12px;
-    background-color: transparent;
-    border: none;
-    margin: 0 5px;
-    cursor: pointer;
-    background-image: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative; /* Позиционирование относительно родительского элемента */
+    width: 18px; /* Ширина кнопки */
+    height: 18px; /* Высота кнопки */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем границу */
+    margin: 0 5px; /* Отступы между кнопками */
+    cursor: pointer; /* Курсор в виде указателя при наведении */
+    background-image: none !important; /* Убираем фоновое изображение */
+    display: flex; /* Используем flexbox для центрирования содержимого */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: center; /* Горизонтальное центрирование */
 }
 
     .carousel-indicators button::before {
-        content: '';
-        width: 12px;
-        height: 12px;
-        background-color: #556B2F;
-        transform: rotate(45deg);
-        transition: background-color 0.3s;
+        content: ''; /* Псевдоэлемент для создания индикатора */
+        width: 18px; /* Ширина индикатора */
+        height: 18px; /* Высота индикатора */
+        background-color: rgba(0, 0, 0, 0.5); /* Цвет фона индикатора */
+        transform: rotate(45deg); /* Поворот индикатора на 45 градусов */
+        transition: background-color 0.3s; /* Плавный переход цвета фона */
     }
 
 .carousel-indicators .active::before {
-    background-color: #445a23;
+    background-color: #445a23; /* Цвет фона активного индикатора */
 }
+
 
 /* Стили для бургер-меню */
 /* Переопределение стандартных стилей Bootstrap для навигационных ссылок внутри navbar */
@@ -226,7 +240,7 @@ footer {
 }
 
 .product-catalog {
-     background-color: #B4A396;
+    background-color: #B4A396;
     color: #6B7D69;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
@@ -234,9 +248,10 @@ footer {
     margin-bottom: 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
     .product-catalog a {
-        color: #4f6f4c; /*  цвет текста для ссылок */
+        color: #312E29; /*  цвет текста для ссылок */
     }
 .product-catalog:hover {
     transform: scale(1.05);
@@ -247,4 +262,254 @@ footer {
         max-height: 150px;
         object-fit: cover;
     }
+/* Поисковая строка */
+.search-box {
+    text-align:end;
+    margin-bottom: 30px;
+}
 
+#catalogSearch {
+    width: 250px;
+    padding: 10px 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #cbd7c8;
+    color: rgb(7, 0, 0, 0,50);
+    outline: none;
+}
+
+    #catalogSearch::placeholder {
+        color: #888;
+    }
+
+#searchBtn {
+    background-color: #556B2F;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 18px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    #searchBtn:hover {
+        background-color: #445a23;
+        transform: scale(1.05);
+    }
+/* Контейнер для кнопок фильтров на всю ширину экрана */
+.filter-controls.fullwidth {
+    width: 100%; /* Используем 100% от ширины viewport */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+/* Сами кнопки, равномерно распределённые */
+.filter-btn {
+    flex: 1; /* Каждая кнопка занимает равную долю */
+    margin: 0;
+    padding: 10px;
+    background-color: #556B2F;
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    /* Эффект при наведении */
+    .filter-btn:hover {
+        background-color: #445a23;
+        transform: scale(1.05);
+    }
+
+.catalog h2 {
+    text-align: center;
+    padding: 40px ;
+    margin-bottom: 10px;
+    color: #3D3630;
+}
+/* Блок с бежевым фоном и произвольными фигурами */
+.random-bg {
+    position: relative; /* Чтобы фигуры позиционировались внутри */
+    background-color: #fff; /* Основной бежевый фон */
+    min-height: 100vh; /* Чтобы фон занимал весь экран */
+    overflow: hidden; /* Чтобы части фигур не вылезали за границы, при необходимости */
+}
+
+    /* Пример 1: Большой шестиугольник (через clip-path) */
+    .random-bg::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: 20%;
+        background-color: #657C68; /* Серо-зелёный */
+        /* Шестиугольник */
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        opacity: 0.3;
+        transform: rotate(15deg);
+    }
+
+    /* Пример 2: Ромб (::after) */
+    .random-bg::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 60%;
+        background-color: #657C68;
+        /* Ромб через transform */
+        transform: rotate(45deg);
+        opacity: 0.2;
+        border-radius: 4px; /* слегка скруглим углы */
+    }
+
+/* Дополнительные фигуры (прямоугольники, ромбы, шестиугольники) */
+.shape-1,
+.shape-2,
+.shape-3 {
+    position: absolute;
+    background-color: #657C68;
+    opacity: 0.15; /* более прозрачные */
+    z-index: 1; /* чтобы они были за контентом, но перед фоном */
+}
+
+/* Фигура 1: Прямоугольник */
+.shape-1 {
+    width: 180px;
+    height: 250px;
+    top: 30%;
+    left: 5%;
+    transform: rotate(-10deg);
+}
+
+/* Фигура 2: Ещё один ромб */
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 35%;
+    transform: rotate(45deg);
+}
+
+/* Фигура 3: Небольшой шестиугольник */
+.shape-3 {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: 80%;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: rotate(-20deg);
+}
+
+/* При желании можно добавить медиазапросы, чтобы подстраивать позиции под мобильные экраны */
+@media (max-width: 768px) {
+    .random-bg::before {
+        width: 200px;
+        height: 200px;
+        top: 15%;
+        left: 10%;
+    }
+
+    .random-bg::after {
+        width: 150px;
+        height: 150px;
+        top: 60%;
+        left: 50%;
+    }
+
+    .shape-1 {
+        width: 120px;
+        height: 160px;
+        top: 40%;
+        left: 5%;
+    }
+
+    .shape-2 {
+        width: 100px;
+        height: 100px;
+        top: 75%;
+        left: 30%;
+    }
+
+    .shape-3 {
+        width: 90px;
+        height: 90px;
+        top: 25%;
+        left: 70%;
+    }
+}
+/* Кнопка связи */
+.contact-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.main-contact-btn {
+    background-color: #556B2F;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+    .main-contact-btn:hover {
+        background-color: #445a23;
+        transform: scale(1.05);
+    }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.contact-options {
+    display: none;
+    flex-direction: column; /* Кнопки будут появляться снизу вверх */
+    gap: 10px;
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+    .contact-options .social-btn,
+    .contact-options .callback-btn,
+    .contact-options .phone-btn {
+        background-color: #556B2F;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .contact-options .social-btn:hover,
+        .contact-options .callback-btn:hover,
+        .contact-options .phone-btn:hover {
+            background-color: #445a23;
+            transform: scale(1.05);
+        }
