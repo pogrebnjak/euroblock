@@ -1,0 +1,24 @@
+﻿@model euroblock.Models.Product
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="product-details container">
+    <div class="row mt-4">
+        <!-- Изображение товара -->
+        <div class="col-md-6 text-center">
+            <img src="~/images/@Model.ImagePath" alt="@Model.Title" class="img-fluid" style="max-height: 400px; object-fit: cover;" />
+        </div>
+
+        <!-- Описание товара -->
+        <div class="col-md-6">
+            <h1>@Model.Title</h1>
+            <p class="text-muted">Цена: @Model.Price р.</p>
+            <p>@Model.Description</p>
+
+            <!-- Пример кнопки для покупки или обратной связи -->
+            <button class="callback-btn mt-3">Заказать</button>
+        </div>
+    </div>
+</section>

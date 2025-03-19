@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using euroblock.Models;
 
 namespace euroblock.Controllers
 {
@@ -44,11 +45,54 @@ namespace euroblock.Controllers
         {
             return View();
         }
-   
-public IActionResult Catalog()
+
+        public IActionResult Catalog()
+        {
+            // Передаем список товаров в представление
+            return View(_products);
+        }
+
+        private static List<Product> _products = new List<Product>
 {
-    // сюда база
-    return View();
-}
+    new Product
+    {
+        Id = 1,
+        Title = "Тротуарная плитка «Антик»",
+        Description = "Описание плитки «Антик»: особенности, применение и т.д.",
+        Price = 880,
+        ImagePath = "product1.jpg"
+    },
+    new Product
+    {
+        Id = 2,
+        Title = "Тротуарная плитка «Новый город»",
+        Description = "Описание плитки «Новый город»: особенности, применение и т.д.",
+        Price = 880,
+        ImagePath = "product2.jpg"
+    },
+    new Product
+    {
+        Id = 3,
+        Title = "Тротуарная плитка «Кирпичик»",
+        Description = "Описание плитки «Кирпичик»: особенности, применение и т.д.",
+        Price = 880,
+        ImagePath = "product3.jpg"
+    }
+    // при необходимости добавляйте больше товаров
+};
+        public IActionResult ProductDetails(int id)
+        {
+            // Ищем товар по id
+            var product = _products.FirstOrDefault(p => p.Id == id);
+
+            if (product == null)
+            {
+                // Можно вернуть ошибку или редирект на список
+                return NotFound();
+            }
+
+            return View(product);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<euroblock.Models.Product>
+@{
     ViewData["Title"] = "Каталог";
 }
 
@@ -7,109 +8,90 @@
         <div class="row">
             <!-- Левая колонка с фильтрами -->
             <div class="col-md-3">
-                <h4>Фильтры</h4>
+                <div class="filter-sidebar">
+                    <h4>Фильтры</h4>
 
-                <!-- Пример фильтра по цене -->
-                <div class="mb-4">
-                    <label for="priceRange" class="form-label">Стоимость</label>
-                    <input type="range" class="form-range" min="880" max="1700" id="priceRange" />
-                    <div class="d-flex justify-content-between">
-                        <span>от 880</span>
-                        <span>до 1700</span>
+                    <!-- Пример фильтра по цене -->
+                    <div class="mb-4">
+                        <label for="priceRange" class="form-label">Стоимость</label>
+                        <input type="range" class="form-range" min="880" max="1700" id="priceRange" />
+                        <div class="d-flex justify-content-between">
+                            <span>от 880</span>
+                            <span>до 1700</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Толщина -->
-                <div class="mb-3">
-                    <h5>Толщина</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="thickness1">
-                        <label class="form-check-label" for="thickness1">
-                            20 мм
-                        </label>
+                    <!-- Фильтр по толщине -->
+                    <div class="mb-3">
+                        <h5>Толщина</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="thickness1">
+                            <label class="form-check-label" for="thickness1">
+                                20 мм
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="thickness2">
+                            <label class="form-check-label" for="thickness2">
+                                30 мм
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="thickness2">
-                        <label class="form-check-label" for="thickness2">
-                            30 мм
-                        </label>
-                    </div>
-                    <!-- Добавляйте остальные варианты по необходимости -->
-                </div>
 
-                <!-- Формат -->
-                <div class="mb-3">
-                    <h5>Формат</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="format1">
-                        <label class="form-check-label" for="format1">
-                            Круглый
-                        </label>
+                    <!-- Фильтр по формату -->
+                    <div class="mb-3">
+                        <h5>Формат</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="format1">
+                            <label class="form-check-label" for="format1">
+                                Круглый
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="format2">
+                            <label class="form-check-label" for="format2">
+                                Малый
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="format2">
-                        <label class="form-check-label" for="format2">
-                            Малый
-                        </label>
-                    </div>
-                    <!-- и т.д. -->
-                </div>
 
-                <!-- Цвета -->
-                <div class="mb-3">
-                    <h5>Цвет</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="color1">
-                        <label class="form-check-label" for="color1">
-                            Сероватый
-                        </label>
+                    <!-- Фильтр по цвету -->
+                    <div class="mb-3">
+                        <h5>Цвет</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="color1">
+                            <label class="form-check-label" for="color1">
+                                Сероватый
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="color2">
+                            <label class="form-check-label" for="color2">
+                                Красный
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="color2">
-                        <label class="form-check-label" for="color2">
-                            Красный
-                        </label>
-                    </div>
-                    <!-- и т.д. -->
                 </div>
             </div>
 
             <!-- Правая колонка с товарами -->
             <div class="col-md-9">
                 <h2 class="mb-4">Тротуарная плитка</h2>
-                <!-- Пример карточек товаров -->
                 <div class="row">
-                    <!-- Карточка товара -->
-                    <div class="col-md-4 mb-4">
-                        <div class="product-catalog">
-                            <img src="~/images/product1.jpg" alt="Тротуарная плитка «Антик»" class="img-fluid">
-                            <h5 class="mt-2">Тротуарная плитка «Антик»</h5>
-                            <p class="text-muted">от 880 р.</p>
-                            
+                    @foreach (var product in Model)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="product-catalog text-center">
+                                <!-- Ссылка на страницу деталей -->
+                                <a asp-action="ProductDetails" asp-route-id="@product.Id" class="text-decoration-none">
+                                    <img src="~/images/@product.ImagePath" alt="@product.Title" class="img-fluid" />
+                                    <h5 class="mt-2">@product.Title</h5>
+                                    <p class="text-muted">от @product.Price р.</p>
+                                </a>         
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Повторяем для других товаров -->
-                    <div class="col-md-4 mb-4">
-                        <div class="product-catalog">
-                            <img src="~/images/product2.jpg" alt="Тротуарная плитка «Новый город»" class="img-fluid">
-                            <h5 class="mt-2">Тротуарная плитка «Новый город»</h5>
-                            <p class="text-muted">от 880 р.</p>
-                            
-                        </div>
-                    </div>
-
-                    <!-- Пример еще одного товара -->
-                    <div class="col-md-4 mb-4">
-                        <div class="product-catalog">
-                            <img src="~/images/product3.jpg" alt="Тротуарная плитка «Кирпичик»" class="img-fluid">
-                            <h5 class="mt-2">Тротуарная плитка «Кирпичик»</h5>
-                            <p class="text-muted">от 880 р.</p>
-                            
-                        </div>
-                    </div>
+                    }
                 </div>
-                <!-- Если товаров больше, можете добавлять новые строки -->
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #270be144;
+    background-color: #445a23;
     color: #2c2c2c;
 }
 
@@ -30,7 +30,7 @@ html, body {
         justify-content: center;
         gap: 20px;
     }
-
+/* Верхний бар текст (Top Bar) */
 .top-info span {
     margin: 0 10px;
     color: #fff;
@@ -133,7 +133,7 @@ header {
 /* Footer */
 footer {
     background-color: #3D3630;
-    color: #2c2c2c;
+    color: #CBB7A6;
     padding: 20px 30px;
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
@@ -156,15 +156,16 @@ footer {
 }
 
 .social-btn {
-    color: #2c2c2c;
+    color: #CBB7A6;
     font-size: 1.5rem;
     transition: color 0.3s;
     text-decoration: none;
 }
 
     .social-btn:hover {
-        color: #270be144;
-    }
+        color: #090909;
+        transform: scale(1.35);
+       }
 
 /* Стили для индикаторов слайдера */
 .carousel-indicators button {
@@ -218,16 +219,28 @@ footer {
     }
     /* Каталог*/
 .filter-sidebar {
-    background-color: #f8f9fa;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #8F6E5A;
     padding: 1rem;
     border-radius: 4px;
 }
 
 .product-catalog {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 1rem;
+     background-color: #B4A396;
+    color: #6B7D69;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 30px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    .product-catalog a {
+        color: #4f6f4c; /*  цвет текста для ссылок */
+    }
+.product-catalog:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
     .product-catalog img {
